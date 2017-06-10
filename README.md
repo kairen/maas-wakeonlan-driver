@@ -1,5 +1,5 @@
 # Ubuntu MAAS 2.2 Wake on LAN Driver Patch
-The WoL driver has indeed been removed from MAAS 2.0, but I need the WoL driver to test some problems, I find one way from [Using Wake on LAN with MAAS 2.x](https://stgraber.org/2017/04/02/using-wake-on-lan-with-maas-2-x/), but this way can't solve on MASS 2.2+, so I modified the some code to provider the WoL Driver.
+The WoL driver has indeed been removed from MAAS 2.0, but I need the WoL driver to test some problems. I find one way from [Using Wake on LAN with MAAS 2.x](https://stgraber.org/2017/04/02/using-wake-on-lan-with-maas-2-x/), but this way can't solve on MASS 2.2+, so I modified the some code to provider the WoL Driver.
 
 Requirement:
 * Install the wakeonlan package.
