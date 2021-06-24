@@ -50,9 +50,13 @@ diff -Naur provisioningserver/drivers/power/wakeonlan.py provisioningserver-wol/
 +    description = "Wake on LAN Power Driver"
 +    settings = [
 +        make_setting_field('power_mac', "MAC address", required=True),
++        make_setting_field('brocast_address', "Brocast address", required=True),
++        make_setting_field('brocast_port', "Brocast port", required=True),
 +    ]
 +    ip_extractor = None
 +    queryable = False
++    can_probe = False
++    chassis = False     
 +
 +    def detect_missing_packages(self):
 +        missing_packages = set()
@@ -75,8 +79,7 @@ diff -Naur provisioningserver/drivers/power/wakeonlan.py provisioningserver-wol/
 +
 +    def power_on(self, system_id, context):
 +        """Power on machine using wake on lan."""
-+        subprocess.call(["wakeonlan", context.get("power_mac")])
-+
++        subprocess.call(["wakeonlan", "-i", context.get("brocast_address"), "-p", context.get("brocast_port"), context.get("power_mac")])
 +
 +    def power_off(self, system_id, context):
 +        """Power off machine manually."""
